@@ -1,0 +1,27 @@
+.container1 .dropdown .dropdown-toggle{
+  color: transparent !important;
+}
+
+.sidebar {
+    height: 96vh;
+    max-height: fit-content;
+    animation: 1s ease-out 0s 1 slideInLeft;
+    background-color: whitesmoke;
+}
+.container1 .col-1 .active{
+    border-left: 0.4em solid !important;
+    border-color: rgb(213, 13, 13) !important;
+    background-color: whitesmoke !important;
+    color:black !important;
+}
+.list-group-item:hover {
+  background-color: rgb(211, 207, 207) !important;
+}
+@keyframes slideInLeft {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }

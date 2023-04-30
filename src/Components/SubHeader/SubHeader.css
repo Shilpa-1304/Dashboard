@@ -1,0 +1,20 @@
+.card{
+    border-radius:5em;
+    
+}
+.subHeaderIcon{
+    color:black;
+    font-size: 3em;
+    margin-left:0.6em;
+    background-color:rgba(128, 128, 128, 0.300);
+    border:1px solid transparent;
+    height: 1em;
+    width:1em;
+    border-radius: 50%;
+}
+.cardTitle1{
+    color: black;
+}
+.cardTitle2{
+    font-size: small;
+}

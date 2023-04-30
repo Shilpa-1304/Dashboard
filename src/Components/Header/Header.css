@@ -1,0 +1,14 @@
+.navbar{
+    background-color: inherit !important;
+    margin-top: -1em;
+}
+.heading1{
+    font-size: 0.6em;
+    color: rgb(213, 13, 13);
+    font-weight: bolder;
+    
+}
+.headContainer{
+    font-weight: bolder;
+    text-align: left;
+}

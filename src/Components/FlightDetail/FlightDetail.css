@@ -1,0 +1,47 @@
+.flightTableContainer{
+    font-size: 0.80em;
+    border:1px solid transparent;
+    border-radius: 1em;
+}
+.tableHead{
+    background-color:rgb(124, 124, 124);
+    color:aliceblue!important;
+    border:1px solid transparent;
+    border-radius:1em;
+}
+.tableHeading{
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-weight: bolder;
+    color:rgb(100, 100, 100);
+}
+.dataInput{
+    width:5em;
+    border-radius:0.5em;
+}
+.emailHeader{
+    height:65%;
+    width:150%;
+    top:11%;
+    
+}
+
+.modal-header{
+    height: 5%;
+    color:white;
+    
+    background-color: rgb(240, 42, 42);
+}
+.modal-title{
+    font-size: 0.8em;
+}
+.modal-content{
+    /* width */
+    height:100%;
+}
+.headerBtn{
+    color:'white';
+}
+.subHeaderModal{
+    font-size: 0.8em;
+    border-bottom: 1px solid rgb(185, 183, 183);
+}
