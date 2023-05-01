@@ -45,3 +45,19 @@
     font-size: 0.8em;
     border-bottom: 1px solid rgb(185, 183, 183);
 }
+table::-webkit-scrollbar {
+    width: 11px;
+  }
+  table {
+    scrollbar-width: thin;
+    scrollbar-color: var(--thumbBG) var(--scrollbarBG);
+  }
+  table::-webkit-scrollbar-track {
+    background: var(--scrollbarBG);
+  }
+  table::-webkit-scrollbar-thumb {
+    background-color: var(--thumbBG) ;
+    border-radius: 6px;
+    border: 3px solid var(--scrollbarBG);
+  }
+  

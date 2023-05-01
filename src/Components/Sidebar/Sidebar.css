@@ -1,6 +1,9 @@
 .container1 .dropdown .dropdown-toggle{
   color: transparent !important;
 }
+/* .airplane{
+  animation: move infinite linear;
+} */
 
 .sidebar {
     height: 96vh;

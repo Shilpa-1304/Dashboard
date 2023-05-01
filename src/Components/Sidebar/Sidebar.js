@@ -12,7 +12,7 @@ function Sidebar() {
           <div class="d-flex flex-column sidebar justify-content-between" >
                 <div className='list-group d-flex flex-column  ' id="list-tab" role="tablist">
                 <a href="/" class="d-block p-3 link-dark text-decoration-none" data-bs-placement="right" >
-                  <ImAirplane style={{fontSize:'1.5m' ,color:'rgb(180, 3, 3)'}}/>
+                  <ImAirplane className='airplane' style={{fontSize:'1.5m' ,color:'rgb(180, 3, 3)'}}/>
                 </a>
                 <a class="list-group-item list-group-item-action active" id="list-home-list" data-bs-toggle="list" href="#list-home" role="tab" aria-controls="list-home">
                   <RiDashboardFill style={{fontSize:'1.5m'}}/>
