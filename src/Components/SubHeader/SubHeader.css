@@ -12,6 +12,13 @@
     width:1em;
     border-radius: 50%;
 }
+.dateSwitchIcon{
+    color:black;
+    font-size: 3em;
+    border:1px solid transparent;
+    height: 1em;
+    width:1em;
+}
 .cardTitle1{
     color: black;
 }

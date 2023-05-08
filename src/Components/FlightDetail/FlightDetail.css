@@ -45,6 +45,10 @@
     font-size: 0.8em;
     border-bottom: 1px solid rgb(185, 183, 183);
 }
+.offcanvas{
+    width:70%;
+    font-size: 0.85em;
+}
 table::-webkit-scrollbar {
     width: 11px;
   }

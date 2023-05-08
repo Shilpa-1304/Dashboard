@@ -39,21 +39,7 @@ function FlightDetail() {
             </tr>
           </thead>
           <tbody className=''>
-            {/* <tr>
-              <td><input className='border border-secondary dataInput' type='text' /></td>
-              <td><input className='border border-secondary dataInput' type='text' /></td>
-              <td><input className='border border-secondary dataInput' type='text' /></td>
-              <td><input className='border border-secondary dataInput' type='text' /></td>
-              <td><input className='border border-secondary dataInput' type='text' /></td>
-              <td><input className='border border-secondary dataInput' type='text' /></td>
-              <td><input className='border border-secondary dataInput' type='text' /></td>
-              <td><input className='border border-secondary dataInput' type='text' /></td>
-              <td><input className='border border-secondary dataInput' type='text' /></td>
-              <td><input className='border border-secondary dataInput' type='text' /></td>
-              <td><input className='border border-secondary dataInput' type='text' /></td>
-              <td><input className='border border-secondary dataInput' type='text' /></td>
-
-            </tr> */}
+            
             <tr>
               <td><input type='checkbox' /></td>
               <td>SG005</td>
@@ -102,7 +88,7 @@ function FlightDetail() {
               <td>DXB</td>
               <td></td>
               <td></td>
-              <td><button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal">Logs</button></td>
+              <td><button type='button' className='btn btn-danger btn-sm' data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">Logs</button></td>
 
             </tr>
 
@@ -120,9 +106,7 @@ function FlightDetail() {
               <td>DEL</td>
               <td></td>
               <td></td>
-              <td> <button class="btn btn-danger btn-sm" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-                Logs
-              </button></td>
+              <td><button type='button' className='btn btn-danger btn-sm' data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">Logs</button></td>
 
             </tr>
           </tbody>
@@ -157,17 +141,58 @@ function FlightDetail() {
           </div>
         </div>
       </div>
-      <div class="offcanvas offcanvas-start border border-danger text-light" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
+      <div class="offcanvas offcanvas-start border border-danger text-light"  data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
         <div class="offcanvas-header bg-danger">
-          <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Equipment Change Logs</h5>
+          <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Equipment Change Logs offcanvas</h5>
           <button type="button" class="btn text-reset text-light" data-bs-dismiss="offcanvas" aria-label="Close">X</button>
         </div>
         {/* offcanvas */}
         <div class="offcanvas-body">
-          <table class="table">
-
+          <table class="table table-striped table-hover table-bordered">
+          <thead>
+                <th>Date</th>
+                <th>Time</th>
+                <th>Editor</th>
+                <th>Response/Request</th>
+                <th>Change</th>
+              </thead>
             <tbody>
               <tr>
+                <th scope="row">21:10</th>
+                <td>01-01-2023</td>
+                <td>Crew 0</td>
+                <td>Request</td>
+                <td>CSG0051 SG0052 24MAR24MAR 0000500 18973H PNQPNPNQPN1820 2000PNQPNQ JJ</td>
+              </tr>
+              <tr>
+                <th scope="row">21:30</th>
+                <td>01-01-2023</td>
+                <td>Crew 1</td>
+                <td>Request</td>
+                <td>CSG0051 SG0052 24MAR24MAR 0000500 18973H PNQPNPNQPN1820 2000PNQPNQ JJ</td>
+              </tr>
+              <tr>
+                <th scope="row">21:50</th>
+                <td>01-01-2023</td>
+                <td>Crew 2</td>
+                <td>Request</td>
+                <td>CSG0051 SG0052 24MAR24MAR 0000500 18973H PNQPNPNQPN1820 2000PNQPNQ JJ</td>
+              </tr>
+              <tr>
+                <th scope="row">22:20</th>
+                <td>01-01-2023</td>
+                <td>Crew 3</td>
+                <td>Response</td>
+                <td>CSG0051 SG0052 24MAR24MAR 0000500 18973H PNQPNPNQPN1820 2000PNQPNQ JJ</td>
+              </tr>
+              <tr>
+                <th scope="row">22:55</th>
+                <td>01-01-2023</td>
+                <td>Crew 4</td>
+                <td>Request</td>
+                <td>CSG0051 SG0052 24MAR24MAR 0000500 18973H PNQPNPNQPN1820 2000PNQPNQ JJ</td>
+              </tr>
+              {/* <tr>
                 <th scope="row">21:30</th>
                 <td>CSG0051 SG0052 24MAR24MAR 0000500 18973H PNQPNPNQPN1820 2000PNQPNQ JJ</td>
               </tr>
@@ -198,7 +223,7 @@ function FlightDetail() {
               <tr>
                 <th scope="row">23:55</th>
                 <td>RSG0051 SG0052 24MAR24MAR 0000500 1897M8 PNQPNPNQPN1820 2000PNQPNQ JJ</td>
-              </tr>
+              </tr> */}
             </tbody>
           </table>
         </div>
@@ -214,11 +239,18 @@ function FlightDetail() {
             </div>
             <div class="modal-body">
               <table class="table">
-
+              <thead>
+                <th>Date</th>
+                <th>Time</th>
+                <th>Editor</th>
+                <th>Response/ <br/> Request</th>
+                <th>Change</th>
+              </thead>
                 <tbody>
-                  <tr>
+                  {/* <tr>
                     <th scope="row">21:30</th>
                     <td>CSG0051 SG0052 24MAR24MAR 0000500 18973H PNQPNPNQPN1820 2000PNQPNQ JJ</td>
+                    <td>Ram Narayan</td>
                   </tr>
                   <tr>
                     <th scope="row">21:50</th>
@@ -247,7 +279,7 @@ function FlightDetail() {
                   <tr>
                     <th scope="row">23:55</th>
                     <td>RSG0051 SG0052 24MAR24MAR 0000500 1897M8 PNQPNPNQPN1820 2000PNQPNQ JJ</td>
-                  </tr>
+                  </tr> */}
                 </tbody>
               </table>
             </div>
