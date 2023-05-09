@@ -18,8 +18,8 @@ function SubHeader() {
         }
     }
     return (
-        <div className='d-flex flex-row mt-1 justify-content-around subHeader'>
-            <div class="card border-secondary mb-3 " style={{ width: ' 18em', height: '5em' }}>
+        <div className='d-flex flex-row m-1 justify-content-around  subHeader'>
+            {/* <div class="card border-secondary mb-3 " style={{ width: ' 18em', height: '5em' }}>
                 <div class=" d-flex flex-row align-items-center justify-content-evenly h-100 text-secondary ">
                     <BiSkipPreviousCircle onClick={()=>handleSwitchDate('Prev')} className='dateSwitchIcon d-flex align-self-center ' />
                     <span className='    '>
@@ -28,7 +28,7 @@ function SubHeader() {
                     </span>
                     <BiSkipNextCircle  onClick={()=>handleSwitchDate('Next')} className='dateSwitchIcon d-flex align-self-center ' />
                 </div>
-            </div>
+            </div> */}
             {/* <div class="card border-secondary mb-3 " style={{ width: ' 18em', height: '5em' }}>
                 <div class=" d-flex flex-row align-items-center h-100 text-secondary ">
                     <MdFlightTakeoff className='subHeaderIcon d-flex ml-2 align-self-center ' />
@@ -39,21 +39,21 @@ function SubHeader() {
 
                 </div>
             </div> */}
-            <div class="card border-secondary mb-3 " style={{ width: ' 18em', height: '5em' }}>
+            <div class="card border-secondary m-3 " style={{ width: ' 18em', height: '5em' }}>
                 <div class=" d-flex flex-row align-items-center h-100 text-secondary ">
                     <MdOutlineChangeCircle className='subHeaderIcon d-flex ml-2 align-self-center ' />
                     <span className='  w-100   '>
-                        <h2 className='cardTitle1'>2</h2>
+                        <h2 className='cardTitle1'>1</h2>
                         <div className='cardTitle2'>No. of Equipments Changed</div>
                     </span>
 
                 </div>
             </div>
-            <div class="card border-secondary mb-3 " style={{ width: ' 18em', height: '5em' }}>
+            <div class="card border-secondary m-3 " style={{ width: ' 18em', height: '5em' }}>
                 <div class=" d-flex flex-row align-items-center h-100 text-secondary ">
                     <CgSandClock className='subHeaderIcon d-flex ml-2 align-self-center ' />
                     <span className='  w-100   '>
-                        <h2 className='cardTitle1'>1</h2>
+                        <h2 className='cardTitle1'>2</h2>
                         <div className='cardTitle2'>Pending Status</div>
                     </span>
 

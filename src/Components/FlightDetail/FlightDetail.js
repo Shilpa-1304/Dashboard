@@ -1,11 +1,12 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { SiMicrosoftexcel } from 'react-icons/si';
-import { BsFileEarmarkPdfFill } from 'react-icons/bs';
+// import { BsFileEarmarkPdfFill } from 'react-icons/bs';
 import { FaFilter, FaSort } from 'react-icons/fa';
 import { AiOutlineClose } from 'react-icons/ai';
 import { AiOutlineExpandAlt } from 'react-icons/ai';
 import './FlightDetail.css';
 function FlightDetail() {
+  const [edit, setEdit] = useState(false);
   return (
     <div className=''>
       <div className='tableHeading d-flex flex-row justify-content-between'>
@@ -14,7 +15,7 @@ function FlightDetail() {
         <span className='d-flex'>
           <button type="button" className="btn btn-outline-danger mx-2 p-1 btn-md" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Send Mail</button>
           <button type='button' className='btn btn-danger mx-2 p-1'><SiMicrosoftexcel /></button>
-          <button type='button' className='btn btn-danger mx-2 p-1'><BsFileEarmarkPdfFill /></button>
+          {/* <button type='button' className='btn btn-danger mx-2 p-1'><BsFileEarmarkPdfFill /></button> */}
           <button type='button' className='btn btn-danger mx-2 p-1'><FaFilter /></button>
         </span>
       </div>        <br />
@@ -39,7 +40,7 @@ function FlightDetail() {
             </tr>
           </thead>
           <tbody className=''>
-            
+
             <tr>
               <td><input type='checkbox' /></td>
               <td>SG005</td>
@@ -71,7 +72,7 @@ function FlightDetail() {
               <td>DXB</td>
               <td></td>
               <td></td>
-              <td>Pending</td>
+              <td><button type='button' className='btn btn-danger btn-sm' data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">Logs</button></td>
 
             </tr>
             <tr>
@@ -124,24 +125,44 @@ function FlightDetail() {
                   {{ color: 'white' }} /></button>
               </span>
             </div>
+            {
+              edit === false ?
+                (<div className='d-flex flex-row justify-content-between m-2 text-secondary subHeaderModal'>
+                  <span >acc@dubaiairports.ae,slots@acl-international.com</span>
+                  <span>ccBcc</span>
+                </div>) :
+                (<div className='d-flex flex-column  text-secondary subHeaderModal'>
+                  <div class="d-flex flex-row justify-content-between" style={{border:'none'}}>
+                    <span class="" id=""> {" "}To</span>
+                    <input type="text" style={{outline:'none',border:'none',borderBottom:'1px solid grey',width:'90%'}} />
+                  </div>
+                  <div class="d-flex flex-row justify-content-between" style={{border:'none'}}>
+                    <span class="" id=""> {" "}CC</span>
+                    <input type="text" style={{outline:'none',border:'none',borderBottom:'1px solid grey',width:'90%'}} />
+                  </div>
+                  <div class="d-flex flex-row justify-content-between" style={{border:'none'}}>
+                    <span class="" id=""> {" "}BCC</span>
+                    <input type="text" style={{outline:'none',border:'none',width:'90%'}} />
+                  </div>
+                </div>)
+
+            }
+
+
             <div className='d-flex flex-row justify-content-between m-2 text-secondary subHeaderModal'>
-              <span >acc@dubaiairports.ae,slots@acl-international.com</span>
-              <span>ccBcc</span>
-            </div>
-            <div className='d-flex flex-row justify-content-between m-2 text-secondary subHeaderModal'>
-              EQUIPMENT CHANGE AT DXB DATE 24 MARCH 2023
+            EQUIPMENT CHANGE AT DXB DATE 24 MARCH 2023
             </div>
             <div class="modal-body">
               Equipment change detail will go here...
             </div>
             <div class="modal-footer d-flex flex-row ">
-              <button type="button" class="btn btn-secondary">Edit</button>
+              <button type="button" class="btn btn-secondary" onClick={() => { setEdit(!edit) }}>Edit</button>
               <button type="button" class="btn btn-danger">Send</button>
             </div>
           </div>
         </div>
       </div>
-      <div class="offcanvas offcanvas-start border border-danger text-light"  data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
+      <div class="offcanvas offcanvas-start border border-danger text-light" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
         <div class="offcanvas-header bg-danger">
           <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Equipment Change Logs offcanvas</h5>
           <button type="button" class="btn text-reset text-light" data-bs-dismiss="offcanvas" aria-label="Close">X</button>
@@ -149,184 +170,66 @@ function FlightDetail() {
         {/* offcanvas */}
         <div class="offcanvas-body">
           <table class="table table-striped table-hover table-bordered">
-          <thead>
-                <th>Date</th>
-                <th>Time</th>
-                <th>Editor</th>
-                <th>Response/Request</th>
-                <th>Change</th>
-              </thead>
+            <thead>
+              <th>Date</th>
+              <th>Time</th>
+              <th>Editor</th>
+              {/* <th>Response/Request</th> */}
+              <th>Change</th>
+            </thead>
             <tbody>
               <tr>
                 <th scope="row">21:10</th>
                 <td>01-01-2023</td>
                 <td>Crew 0</td>
-                <td>Request</td>
-                <td>CSG0051 SG0052 24MAR24MAR 0000500 18973H PNQPNPNQPN1820 2000PNQPNQ JJ</td>
+                <td>
+                  <table class="table table-hover  table-striped table-border">
+                    <tr><th>Request</th><td>XSG0051 SG0052 24MAR24MAR 0000500 1897M8 PNQPNQ1820 2000PNQPNQ JJ</td></tr>
+                    <tr><th>Response</th><td>KSG0051 SG0052 24MAR24MAR 0000500 18973H PNQPNQ1820 2000PNQPNQ JJ</td></tr>
+                  </table>
+                </td>
+
+
               </tr>
               <tr>
                 <th scope="row">21:30</th>
                 <td>01-01-2023</td>
                 <td>Crew 1</td>
-                <td>Request</td>
-                <td>CSG0051 SG0052 24MAR24MAR 0000500 18973H PNQPNPNQPN1820 2000PNQPNQ JJ</td>
+                <td>
+                  <table class="table table-hover  table-striped table-border">
+                    <tr><th>Request</th><td>XSG0051 SG0052 24MAR24MAR 0000500 18973H PNQPNQ1820 2000PNQPNQ JJ</td></tr>
+                    <tr><th>Response</th><td>KSG0051 SG0052 24MAR24MAR 0000500 1897M8 PNQPNQ1820 2000PNQPNQ JJ</td></tr>
+                  </table>
+                </td>
               </tr>
               <tr>
                 <th scope="row">21:50</th>
                 <td>01-01-2023</td>
                 <td>Crew 2</td>
-                <td>Request</td>
-                <td>CSG0051 SG0052 24MAR24MAR 0000500 18973H PNQPNPNQPN1820 2000PNQPNQ JJ</td>
+                <td>
+                  <table class="table table-hover  table-striped table-border">
+                    <tr><th>Request</th><td>XSG0051 SG0052 24MAR24MAR 0000500 1897M8 PNQPNQ1820 2000PNQPNQ JJ</td></tr>
+                    <tr><th>Response</th><td>KSG0051 SG0052 24MAR24MAR 0000500 18973H PNQPNQ1820 2000PNQPNQ JJ</td></tr>
+                  </table>
+                </td>
               </tr>
               <tr>
-                <th scope="row">22:20</th>
+                <th scope="row">21:55</th>
                 <td>01-01-2023</td>
                 <td>Crew 3</td>
-                <td>Response</td>
-                <td>CSG0051 SG0052 24MAR24MAR 0000500 18973H PNQPNPNQPN1820 2000PNQPNQ JJ</td>
+                <td>
+                  <table class="table table-hover  table-striped table-border">
+                    <tr><th>Request</th><td>XSG0051 SG0052 24MAR24MAR 0000500 18973H PNQPNQ1820 2000PNQPNQ JJ</td></tr>
+                    <tr><th>Response</th><td>KSG0051 SG0052 24MAR24MAR 0000500 18973K PNQPNQ1820 2000PNQPNQ JJ</td></tr>
+                  </table>
+                </td>
               </tr>
-              <tr>
-                <th scope="row">22:55</th>
-                <td>01-01-2023</td>
-                <td>Crew 4</td>
-                <td>Request</td>
-                <td>CSG0051 SG0052 24MAR24MAR 0000500 18973H PNQPNPNQPN1820 2000PNQPNQ JJ</td>
-              </tr>
-              {/* <tr>
-                <th scope="row">21:30</th>
-                <td>CSG0051 SG0052 24MAR24MAR 0000500 18973H PNQPNPNQPN1820 2000PNQPNQ JJ</td>
-              </tr>
-              <tr>
-                <th scope="row">21:50</th>
-                <td>RSG0051 SG0052 24MAR24MAR 0000500 1897M8 PNQPNPNQPN1820 2000PNQPNQ JJ</td>
-              </tr>
-              <tr>
-                <th scope="row">22:20</th>
-                <td>CSG0051 SG0052 24MAR24MAR 0000500 18973H PNQPNPNQPN1820 2000PNQPNQ JJ</td>
-              </tr>
-              <tr>
-                <th scope="row">22:55</th>
-                <td>RSG0052 SG0052 24MAR24MAR 0000500 1897M9 PNQPNPNQPN1820 2000PNQPNQ JJ</td>
-              </tr>
-              <tr>
-                <th scope="row">23:15</th>
-                <td>RSG0053 SG0052 24MAR24MAR 0000500 1897M3 PNQPNPNQPN1820 2000PNQPNQ JJ</td>
-              </tr>
-              <tr>
-                <th scope="row">23:45</th>
-                <td>RSG0054 SG0052 24MAR24MAR 0000500 1897M4 PNQPNPNQPN1820 2000PNQPNQ JJ</td>
-              </tr>
-              <tr>
-                <th scope="row">23:55</th>
-                <td>RSG0058 SG0052 24MAR24MAR 0000500 1897M8 PNQPNPNQPN1820 2000PNQPNQ JJ</td>
-              </tr>
-              <tr>
-                <th scope="row">23:55</th>
-                <td>RSG0051 SG0052 24MAR24MAR 0000500 1897M8 PNQPNPNQPN1820 2000PNQPNQ JJ</td>
-              </tr> */}
+
             </tbody>
           </table>
         </div>
       </div>
 
-      {/* Modal */}
-      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-xl">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Equipment Change Logs</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-              <table class="table">
-              <thead>
-                <th>Date</th>
-                <th>Time</th>
-                <th>Editor</th>
-                <th>Response/ <br/> Request</th>
-                <th>Change</th>
-              </thead>
-                <tbody>
-                  {/* <tr>
-                    <th scope="row">21:30</th>
-                    <td>CSG0051 SG0052 24MAR24MAR 0000500 18973H PNQPNPNQPN1820 2000PNQPNQ JJ</td>
-                    <td>Ram Narayan</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">21:50</th>
-                    <td>RSG0051 SG0052 24MAR24MAR 0000500 1897M8 PNQPNPNQPN1820 2000PNQPNQ JJ</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">22:20</th>
-                    <td>CSG0051 SG0052 24MAR24MAR 0000500 18973H PNQPNPNQPN1820 2000PNQPNQ JJ</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">22:55</th>
-                    <td>RSG0052 SG0052 24MAR24MAR 0000500 1897M9 PNQPNPNQPN1820 2000PNQPNQ JJ</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">23:15</th>
-                    <td>RSG0053 SG0052 24MAR24MAR 0000500 1897M3 PNQPNPNQPN1820 2000PNQPNQ JJ</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">23:45</th>
-                    <td>RSG0054 SG0052 24MAR24MAR 0000500 1897M4 PNQPNPNQPN1820 2000PNQPNQ JJ</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">23:55</th>
-                    <td>RSG0058 SG0052 24MAR24MAR 0000500 1897M8 PNQPNPNQPN1820 2000PNQPNQ JJ</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">23:55</th>
-                    <td>RSG0051 SG0052 24MAR24MAR 0000500 1897M8 PNQPNPNQPN1820 2000PNQPNQ JJ</td>
-                  </tr> */}
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="collapse" id="collapseExample">
-        <div class="card card-body">
-          <table class="table">
-
-            <tbody>
-              <tr>
-                <th scope="row">21:30</th>
-                <td>CSG0051 SG0052 24MAR24MAR 0000500 18973H PNQPNPNQPN1820 2000PNQPNQ JJ</td>
-              </tr>
-              <tr>
-                <th scope="row">21:50</th>
-                <td>RSG0051 SG0052 24MAR24MAR 0000500 1897M8 PNQPNPNQPN1820 2000PNQPNQ JJ</td>
-              </tr>
-              <tr>
-                <th scope="row">22:20</th>
-                <td>CSG0051 SG0052 24MAR24MAR 0000500 18973H PNQPNPNQPN1820 2000PNQPNQ JJ</td>
-              </tr>
-              <tr>
-                <th scope="row">22:55</th>
-                <td>RSG0052 SG0052 24MAR24MAR 0000500 1897M9 PNQPNPNQPN1820 2000PNQPNQ JJ</td>
-              </tr>
-              <tr>
-                <th scope="row">23:15</th>
-                <td>RSG0053 SG0052 24MAR24MAR 0000500 1897M3 PNQPNPNQPN1820 2000PNQPNQ JJ</td>
-              </tr>
-              <tr>
-                <th scope="row">23:45</th>
-                <td>RSG0054 SG0052 24MAR24MAR 0000500 1897M4 PNQPNPNQPN1820 2000PNQPNQ JJ</td>
-              </tr>
-              <tr>
-                <th scope="row">23:55</th>
-                <td>RSG0058 SG0052 24MAR24MAR 0000500 1897M8 PNQPNPNQPN1820 2000PNQPNQ JJ</td>
-              </tr>
-              <tr>
-                <th scope="row">23:55</th>
-                <td>RSG0051 SG0052 24MAR24MAR 0000500 1897M8 PNQPNPNQPN1820 2000PNQPNQ JJ</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
     </div>
   )
 }

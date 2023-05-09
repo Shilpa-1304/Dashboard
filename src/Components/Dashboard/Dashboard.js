@@ -11,9 +11,9 @@ function Dashboard() {
       <div className='flex-fill'>
         <Header />
 {/* From and To date picker */}
-        <div className='d-flex flex-row s'>
-
-          <span className='dateContainer mx-2  my-1'>
+        <div className='d-flex flex-row justify-content-around'>
+<div className='d-flex flex-row'>
+<span className='dateContainer mx-2  my-1'>
             <span className='dateLabel'>From Date</span><br />
             <input type='date' className='p-1 m-1 datePicker' />
           </span>
@@ -23,8 +23,11 @@ function Dashboard() {
             <input type='date' className='p-1  m-1 datePicker' />
           </span>
           <button type="button" className='btn btn-danger mx-2 searchBtn'>Search</button>
+</div>
+<SubHeader/>
+          
         </div>
-        <SubHeader/>
+        
         <FlightDetail/>
       </div>
       
