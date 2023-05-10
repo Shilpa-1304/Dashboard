@@ -5,6 +5,8 @@ import { FaFilter, FaSort } from 'react-icons/fa';
 import { AiOutlineClose } from 'react-icons/ai';
 import { AiOutlineExpandAlt } from 'react-icons/ai';
 import './FlightDetail.css';
+import { Editor } from "react-draft-wysiwyg";
+import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
 function FlightDetail() {
   const [edit, setEdit] = useState(false);
   return (
@@ -12,6 +14,18 @@ function FlightDetail() {
       <div className='tableHeading d-flex flex-row justify-content-between'>
 
         <span>FSC Equipment Change Listing</span>
+        <div className='d-flex flex-row my-1 justify-content-center '>
+          <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+            <input type="radio" class="btn-check mx-1" active name="btnradio" id="btnradio1" autocomplete="off" />
+            <label class="btn btn-outline-secondary mx-1" for="btnradio1">Yesterday</label>
+
+            <input type="radio" class="btn-check mx-1" name="btnradio" id="btnradio2" autocomplete="off" />
+            <label class="btn btn-outline-secondary mx-1" for="btnradio2">Today</label>
+
+            <input type="radio" class="btn-check mx-1" name="btnradio" id="btnradio3" autocomplete="off" />
+            <label class="btn btn-outline-secondary mx-1" for="btnradio3">Tomorrow</label>
+          </div>
+        </div>
         <span className='d-flex'>
           <button type="button" className="btn btn-outline-danger mx-2 p-1 btn-md" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Send Mail</button>
           <button type='button' className='btn btn-danger mx-2 p-1'><SiMicrosoftexcel /></button>
@@ -132,17 +146,17 @@ function FlightDetail() {
                   <span>ccBcc</span>
                 </div>) :
                 (<div className='d-flex flex-column  text-secondary subHeaderModal'>
-                  <div class="d-flex flex-row justify-content-between" style={{border:'none'}}>
+                  <div class="d-flex flex-row justify-content-between" style={{ border: 'none' }}>
                     <span class="" id=""> {" "}To</span>
-                    <input type="text" style={{outline:'none',border:'none',borderBottom:'1px solid grey',width:'90%'}} />
+                    <input type="text" style={{ outline: 'none', border: 'none', borderBottom: '1px solid grey', width: '90%' }} />
                   </div>
-                  <div class="d-flex flex-row justify-content-between" style={{border:'none'}}>
+                  <div class="d-flex flex-row justify-content-between" style={{ border: 'none' }}>
                     <span class="" id=""> {" "}CC</span>
-                    <input type="text" style={{outline:'none',border:'none',borderBottom:'1px solid grey',width:'90%'}} />
+                    <input type="text" style={{ outline: 'none', border: 'none', borderBottom: '1px solid grey', width: '90%' }} />
                   </div>
-                  <div class="d-flex flex-row justify-content-between" style={{border:'none'}}>
+                  <div class="d-flex flex-row justify-content-between" style={{ border: 'none' }}>
                     <span class="" id=""> {" "}BCC</span>
-                    <input type="text" style={{outline:'none',border:'none',width:'90%'}} />
+                    <input type="text" style={{ outline: 'none', border: 'none', width: '90%' }} />
                   </div>
                 </div>)
 
@@ -150,12 +164,18 @@ function FlightDetail() {
 
 
             <div className='d-flex flex-row justify-content-between m-2 text-secondary subHeaderModal'>
-            EQUIPMENT CHANGE AT DXB DATE 24 MARCH 2023
+              EQUIPMENT CHANGE AT DXB DATE 24 MARCH 2023
             </div>
             <div class="modal-body">
               Equipment change detail will go here...
             </div>
             <div class="modal-footer d-flex flex-row ">
+              <Editor
+                toolbarClassName="toolbarClassName"
+                wrapperClassName="wrapperClassName"
+                editorClassName="editorClassName"
+                wrapperStyle={{ width: 800, border: "1px solid black" }}
+              />
               <button type="button" class="btn btn-secondary" onClick={() => { setEdit(!edit) }}>Edit</button>
               <button type="button" class="btn btn-danger">Send</button>
             </div>
