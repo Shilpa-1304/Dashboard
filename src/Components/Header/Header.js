@@ -11,11 +11,11 @@ function Header() {
                     <a href="#"  class="d-flex align-items-center justify-content-center p-3 text-decoration-none dropdown-toggle" id="dropdownUser3" data-bs-toggle="dropdown" aria-expanded="false">
                     <FontAwesomeIcon icon={faUser} beatFade size="lg" color=' rgb(214, 13, 13)'/>
                     </a>
-                    <ul class="dropdown-menu text-small shadow">
+                    <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownMenuButton">
                       
                       <li><a class="dropdown-item" href="#">Profile</a></li>
                       <li><hr class="dropdown-divider"/></li>
-                      <li><a class="dropdown-item" href="#">Sign out</a></li>
+                      <li><a class="dropdown-item" href="/">Sign out</a></li>
                     </ul>
                   
                 </div>

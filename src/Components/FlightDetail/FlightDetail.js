@@ -5,10 +5,17 @@ import { FaFilter, FaSort } from 'react-icons/fa';
 import { AiOutlineClose } from 'react-icons/ai';
 import { AiOutlineExpandAlt } from 'react-icons/ai';
 import './FlightDetail.css';
+import {ImAirplane} from 'react-icons/im';
 import { Editor } from "react-draft-wysiwyg";
 import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 function FlightDetail() {
+  
   const [edit, setEdit] = useState(false);
+  const notify = () => toast.error("Email sent successfully !",{
+    icon:<ImAirplane style={{color:'red'}}/>,theme: "dark"
+  });
   return (
     <div className=''>
       <div className='tableHeading d-flex flex-row justify-content-between '>
@@ -117,8 +124,8 @@ function FlightDetail() {
           </tbody>
         </table>
       </div>
-      <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg modal-dialog-scrollable border border-danger emailHeader">
+      <div class="modal fade " id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div style={{ height: '30em' }} class="modal-dialog   modal-lg modal-dialog-scrollable border border-danger emailHeader">
           <div class="modal-content">
             <div class="modal-header d-flex flex-row justify-content-between">
               <h5 class="modal-title" id="staticBackdropLabel">Equipment change Email</h5>
@@ -156,19 +163,19 @@ function FlightDetail() {
             <div className='d-flex flex-row justify-content-between m-2 text-secondary subHeaderModal'>
               EQUIPMENT CHANGE AT DXB DATE 24 MARCH 2023
             </div>
-            
-              
-                <Editor class="modal-body"
-                  toolbarClassName="toolbarClassName"
-                  wrapperClassName="wrapperClassName"
-                  editorClassName="editorClassName"
-                  wrapperStyle={{ height:'100%', borderBottom: "1px inset #fff" }}
-                >Details will go here...</Editor>
-              <div class="modal-footer">
+            <div class="modal-body">
 
-              <button type="button" class="btn btn-secondary" style={{pointer:'cursor'}} onClick={() => { setEdit(!edit) }}> Edit </button>
-              <button type="button" class="btn btn-danger">Send</button></div>
-           
+              <Editor class=""
+                toolbarClassName="toolbarClassName"
+                wrapperClassName="wrapperClassName"
+                editorClassName="editorClassName"
+                wrapperStyle={{ borderBottom: "1px inset #fff", zindex: '-1' }}
+              >   Details will go here...</Editor></div>
+            <div class="modal-footer">
+
+              <button type="button" class="btn btn-secondary" style={{ pointer: 'cursor' }} onClick={() => { setEdit(!edit) }}> Edit </button>
+              <button type="button" class="btn btn-danger" data-bs-dismiss="modal" id="myBtn" onClick={notify}>Send</button></div>
+
           </div>
         </div>
       </div>
@@ -239,7 +246,9 @@ function FlightDetail() {
           </table>
         </div>
       </div>
-
+      <div>
+        <ToastContainer />
+      </div>
     </div>
   )
 }

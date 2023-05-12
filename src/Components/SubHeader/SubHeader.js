@@ -1,22 +1,10 @@
 import React, { useState } from 'react'
-import { BiSkipPreviousCircle ,BiSkipNextCircle} from 'react-icons/bi';
-import {MdFlightTakeoff,MdOutlineChangeCircle} from 'react-icons/md';
-import {CgSandClock} from 'react-icons/cg';
+// import { BiSkipPreviousCircle ,BiSkipNextCircle} from 'react-icons/bi';
+import {MdOutlineChangeCircle} from 'react-icons/md';
+import {CgSandClock} from 'react-icons/cg'; 
 import './SubHeader.css';
 function SubHeader() {
-    let today=new Date().toLocaleDateString('en-GB');
-    const [date,setDate]=useState(today);
-    const handleSwitchDate=(action)=>{
-        let date=new Date();
-        if(action=='Next'){
-            let day=date.setDate(date.getDate() + 1);
-            console.log(day);
-        }
-        else{
-            let d1=date.setDate(date.getDate() - 1);
-            console.log(d1)
-        }
-    }
+    
     return (
         <div className='d-flex flex-row my-1 justify-content-between  subHeader'>
             {/* <div class="card border-secondary mb-3 " style={{ width: ' 18em', height: '5em' }}>
