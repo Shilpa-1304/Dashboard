@@ -5,7 +5,7 @@ import { FaFilter, FaSort } from 'react-icons/fa';
 import { AiOutlineClose } from 'react-icons/ai';
 import { AiOutlineExpandAlt } from 'react-icons/ai';
 import './FlightDetail.css';
-import {ImAirplane} from 'react-icons/im';
+import { ImAirplane } from 'react-icons/im';
 import { Editor } from "react-draft-wysiwyg";
 import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
 import { ToastContainer, toast } from 'react-toastify';
@@ -13,11 +13,12 @@ import 'react-toastify/dist/ReactToastify.css';
 function FlightDetail() {
   
   const [edit, setEdit] = useState(false);
-  const notify = () => toast.error("Email sent successfully !",{
-    icon:<ImAirplane style={{color:'red'}}/>,theme: "dark"
+  const notify = () => toast.error("Email sent successfully !", {
+    icon: <ImAirplane style={{ color: 'red' }} />, theme: "dark"
   });
   return (
-    <div className=''>
+    <div className='' >
+      {/* <div ></div> */}
       <div className='tableHeading d-flex flex-row justify-content-between '>
 
         <span className='my-2'>FSC Equipment Change Listing</span>
@@ -25,10 +26,18 @@ function FlightDetail() {
           <button type='button' className='btn btn-danger mx-2 p-1'><FaFilter /></button>
 
           <button type='button' className='btn btn-danger mx-2 p-1'><SiMicrosoftexcel /></button>
-          <button type="button" className="btn btn-outline-danger mx-2 p-1 btn-md" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Send Mail</button>
+          <button type="button" className="btn btn-outline-danger mx-2 p-1 btn-md" data-bs-toggle="modal" data-bs-target="#staticBackdrop">SCR Response</button>
+          <span className='px-2'><button type="button" class="btn btn-warning dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">Override</button>
+          <ul class="dropdown-menu menu1 dropdown-menu-dark">
+          <li><a class="dropdown-item item1" href="#">Confirm</a></li>
+          <li><a class="dropdown-item item1" href="#">Cancel</a></li>
+    
+        </ul></span>
+          
           {/* <button type='button' className='btn btn-danger mx-2 p-1'><BsFileEarmarkPdfFill /></button> */}
 
         </span>
+        
       </div>        <br />
       <div class="table-responsive flightTableContainer">
         <table class="table table-hover  table-striped">
@@ -36,15 +45,15 @@ function FlightDetail() {
             <tr>
               <th></th>
               <th>Flight No.<FaSort size='20px' /></th>
-              <th>Flight Type<FaSort size='20px' /></th>
+              <th>Service Type<FaSort size='20px' /></th>
               <th>Action Code <FaSort size='20px' /></th>
-              <th>Departure Date <FaSort size='20px' /></th>
+              <th>Flight Date <FaSort size='20px' /></th>
               <th>STD (UTC) <FaSort size='20px' /></th>
               <th>STA (UTC) <FaSort size='20px' /></th>
-              <th>Day No. <FaSort size='20px' /></th>
+              <th>Frequency <FaSort size='20px' /></th>
               <th>Equipment <FaSort size='20px' /></th>
               <th>Departure <FaSort size='20px' /></th>
-              <th>Arrival <FaSort size='20px' /></th>
+              <th>Destination <FaSort size='20px' /></th>
               <th>Mail Sent<br /> By <FaSort size='20px' /></th>
               <th>Mail Sent<br /> Time (IST) <FaSort size='20px' /></th>
               <th>Logs <FaSort size='20px' /></th>
@@ -181,7 +190,7 @@ function FlightDetail() {
       </div>
       <div class="offcanvas offcanvas-start border border-danger text-light" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
         <div class="offcanvas-header bg-danger">
-          <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Equipment Change Logs offcanvas</h5>
+          <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Equipment Change Logs</h5>
           <button type="button" class="btn text-reset text-light" data-bs-dismiss="offcanvas" aria-label="Close">X</button>
         </div>
         {/* offcanvas */}

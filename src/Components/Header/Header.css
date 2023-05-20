@@ -13,4 +13,23 @@
     text-align: left;
 }
 
-  
+.dropdown-menu1{
+    animation: rotateMenu 500ms ease-in-out;
+    
+}
+.dropdown-item1{
+    font-size: 14px;
+    font-weight: bold;
+    
+}
+@keyframes rotateMenu {
+    0% {
+      transform: rotateX(-90deg)
+    }
+    70% {
+      transform: rotateX(20deg)
+    }
+    100% {
+      transform: rotateX(0deg)
+    }
+}
