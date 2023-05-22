@@ -4,8 +4,11 @@ import Header from '../Header/Header.js';
 import { useState } from 'react';
 import SubHeader from '../SubHeader/SubHeader';
 import FlightDetail from '../FlightDetail/FlightDetail';
+import moment from 'moment/moment';
 function Dashboard() {
-  const [startDate, setStartDate] = useState(new Date());
+  const [yesterday,setYesterday]=useState(moment().subtract(1, 'days').format('ll'));
+  const [today, setToday] = useState(moment().format('ll'));
+  const [tomorrow,setTomorrow]=useState(moment().add(1, 'days').format('ll'));
   return (
     <div className='d-flex align-item-center  '>
       <div className='flex-fill '>
@@ -25,15 +28,15 @@ function Dashboard() {
             </span>
             <button type="button" className='btn btn-danger mx-2  searchBtn'>Search</button> */}
             {/* <div className='d-flex flex-row  border border-primary justify-content-center '> */}
-            <div class="btn-group btn-group-sm " style={{ height: 'max-content' }} role="group" aria-label="Basic checkbox toggle button group">
-              <input type="checkbox" class="btn-check  mx-2" id="btncheck1" autocomplete="off" />
-              <label class="btn btn-outline-secondary  mx-2" for="btncheck1">Yesterday</label>
+            <div class="btn-group btn-group-sm " style={{ height: 'max-content' }} role="group" aria-label="Basic radio toggle button group">
+              <input type="radio" class="btn-check  mx-2" name="btnradio" id="btncheck1" autocomplete="off" />
+              <label class="btn btn-outline-secondary  mx-2" for="btncheck1">{yesterday}</label>
 
-              <input type="checkbox" class="btn-check mx-2 " checked id="btncheck2" autocomplete="off" />
-              <label class="btn btn-outline-secondary mx-2" for="btncheck2">Today</label>
+              <input type="radio" class="btn-check mx-2 " name="btnradio" checked id="btncheck2" autocomplete="off" />
+              <label class="btn btn-outline-secondary mx-2" for="btncheck2">{today}</label>
 
-              <input type="checkbox" class="btn-check mx-2" id="btncheck3" autocomplete="off" />
-              <label class="btn btn-outline-secondary mx-2" for="btncheck3">Tomorrow</label>
+              <input type="radio" class="btn-check mx-2" name="btnradio" id="btncheck3" autocomplete="off" />
+              <label class="btn btn-outline-secondary mx-2" for="btncheck3">{tomorrow}</label>
             </div>
           </div>
           {/* </div> */}

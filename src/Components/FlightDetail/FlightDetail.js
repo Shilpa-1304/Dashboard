@@ -27,12 +27,8 @@ function FlightDetail() {
 
           <button type='button' className='btn btn-danger mx-2 p-1'><SiMicrosoftexcel /></button>
           <button type="button" className="btn btn-outline-danger mx-2 p-1 btn-md" data-bs-toggle="modal" data-bs-target="#staticBackdrop">SCR Response</button>
-          <span className='px-2'><button type="button" class="btn btn-warning dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">Override</button>
-          <ul class="dropdown-menu menu1 dropdown-menu-dark">
-          <li><a class="dropdown-item item1" href="#">Confirm</a></li>
-          <li><a class="dropdown-item item1" href="#">Cancel</a></li>
-    
-        </ul></span>
+          <button type="button" class="btn btn-warning mx-2 p-2 btn-md" >Override</button>
+          
           
           {/* <button type='button' className='btn btn-danger mx-2 p-1'><BsFileEarmarkPdfFill /></button> */}
 
